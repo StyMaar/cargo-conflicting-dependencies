@@ -1,0 +1,16 @@
+[package]
+name = "top-crate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dep-with-older-version={path="../dep-with-older-version", optional=true}
+dep-with-newer-version={path="../dep-with-newer-version", optional=true}
+
+[features]
+default = []
+older = ["dep:dep-with-older-version"]
+newer = ["dep:dep-with-newer-version"]
+
+[patch.crates-io]
+zeroize = { git = "https://github.com/RustCrypto/utils", directory="zeroize", rev = "zeroize-v1.5.7" }
