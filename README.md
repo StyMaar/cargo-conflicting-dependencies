@@ -1,1 +1,3 @@
 This repository contains a simple reproduction for a Cargo “issue” (it's not a bug per se because exclusive features are frowned upon anyway, but that's still an): when different features are importing a different (and mutually incompatible) version of a crate, then cargo tires to find a matching version before realizing that the two incompatible versions aren't actually imported.
+
+Depending on the selected feature, `top-crate` depends on `dep-with-newer-version` (which depends on `zeroize="1.5.7"`) `dep-with-older-version` (which depends on `zeroize="=1.3.0"` (note the `=` in the version number).
